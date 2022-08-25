@@ -9,16 +9,24 @@ This is the software required for running this example:
  - Create a topic called `total-connected-devices`
 	> oc process \\
 	> -f resources/create-topic.yaml \\
-	> -p TOPIC_NAME='total-connected-devices' \ | oc apply -f -
+	> -p TOPIC_NAME='device-temperatures' \ | oc apply -f -
 
 # Demo steps:
 This application listens for records sent to the `total-connected-devices` topic. Then, run the `producer` application in your other command-terminal and verify that the `viewer` application is receiving the records.
 ## 1. Setting up connection
-By using your editor of choice, open the `producer/src/main/java/com/redhat/telemetry/producer/ProducerApp.java` file, and examine the code.
-Replace these variables by your correspondent environment variables: 
-    "YOUR_KAFKA_BOOTSTRAP_HOST"
-    "YOUR_KAFKA_BOOTSTRAP_PORT"
-    "ABSOLUTE_PATH_TO_YOUR_WORKSPACE_FOLDER"
+By using your editor of choice, open the src/main/resources/application.properties file, and configure the following Kafka settings:
+
+The bootstrap server
+
+The record key serializer
+
+The record value serializer
+
+The type of connection
+
+The location and passwords of the TrustStore file
+
+The Kafka connector
 
 ## 2. Compile application
 In your command-line terminal, navigate to the `kafka-producers/plain` directory. Compile the application.

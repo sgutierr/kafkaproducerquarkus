@@ -29,3 +29,7 @@ Replace these variables by your correspondent environment variables:
 ## 2. Compile application
 In your command-line terminal, navigate to the `kafka-producers/quarkus` directory. Compile the application.
 **`./mvnw clean package quarkus:dev`**
+
+## 3. Testing
+Running the oc and the kafka-console-consumer command inside of the broker you can retrieve topic records as follow:
+ **`oc exec -it my-cluster-kafka-0 -- bin/kafka-console-consumer.sh  --bootstrap-server my-cluster-kafka-bootstrap:9092  --topic vehicle-positions  --from-beginning`**

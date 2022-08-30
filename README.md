@@ -33,3 +33,6 @@ In your command-line terminal, navigate to the `kafka-producers/quarkus` directo
 ## 3. Testing
 Running the oc and the kafka-console-consumer command inside of the broker you can retrieve topic records as follow:
  **`oc exec -it my-cluster-kafka-0 -- bin/kafka-console-consumer.sh  --bootstrap-server my-cluster-kafka-bootstrap:9092  --topic vehicle-positions  --from-beginning`**
+ 
+ To count topic records:
+ **`oc exec -it my-cluster-kafka-0 -- bin/kafka-run-class.sh kafka.tools.GetOffsetShell  --broker-list my-cluster-kafka-bootstrap:9092 --topic vehicle-positions`**
